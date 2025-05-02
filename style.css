@@ -1,0 +1,347 @@
+/* --- Import Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700&display=swap');
+
+/* --- Global Styles & Resets --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 100%;
+    scroll-behavior: smooth; /* Add smooth scrolling for anchor links */
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    line-height: 1.7; /* Slightly increased line height */
+    color: #444; /* Slightly lighter text color */
+    background-color: #f8f9fa; /* Lighter grey background */
+    padding: 1.5rem;
+    max-width: 950px; /* Slightly wider max-width */
+    margin: 2.5rem auto; /* More margin top/bottom */
+    border-radius: 10px; /* Rounded corners for the main content block */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Softer shadow for the body block */
+    background-image: linear-gradient(to bottom, #ffffff, #f8f9fa); /* Subtle gradient */
+}
+
+/* --- Typography --- */
+h1, h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: #1a7b72; /* Slightly darker, less saturated teal */
+    margin-bottom: 1.2rem;
+    margin-top: 2rem; /* More space above headings */
+    letter-spacing: -0.5px; /* Slightly tighter letter spacing */
+}
+
+h1 {
+    font-size: 2.8rem; /* Slightly larger */
+    text-align: center;
+    margin-bottom: 2.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05); /* Subtle text shadow */
+}
+
+h2 {
+    font-size: 1.9rem; /* Slightly larger */
+    border-bottom: 2px solid #e0e0e0; /* Thicker, lighter border */
+    padding-bottom: 0.5rem;
+    margin-top: 2.5rem; /* More separation */
+}
+
+p {
+    margin-bottom: 1.2rem; /* Slightly more space */
+}
+
+ul {
+    list-style: disc; /* Ensure default disc */
+    list-style-position: outside; /* Bullets outside */
+    margin-left: 1.5rem; /* Indent list further */
+    margin-bottom: 1.2rem;
+}
+
+li {
+    margin-bottom: 0.6rem; /* More space between items */
+}
+
+a {
+    color: #0077cc; /* Slightly different blue */
+    text-decoration: none;
+    font-weight: bold; /* Make links stand out more */
+    transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease; /* Added transform */
+}
+
+a:hover {
+    color: #005fa3; /* Darker blue on hover */
+    text-decoration: none; /* Keep no underline */
+    /* transform: translateY(-1px); /* Subtle lift on hover */
+}
+
+blockquote {
+    margin: 1.5rem 1rem 1.5rem 2.5rem; /* Adjusted margins */
+    padding: 1rem; /* Add padding */
+    border-left: 5px solid #1a7b72; /* Use accent color for border */
+    background-color: #eef7f6; /* Very light teal background */
+    border-radius: 5px;
+    font-style: italic;
+    color: #555;
+}
+blockquote p {
+    margin-bottom: 0; /* Remove bottom margin for paragraph inside quote */
+}
+
+
+hr {
+    border: 0;
+    height: 2px; /* Thicker line */
+    background-image: linear-gradient(to right, transparent, #ccc, transparent); /* Gradient HR */
+    margin: 3rem 0; /* More space around HR */
+}
+
+/* --- Images --- */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 1rem;
+    border-radius: 5px; /* Default rounded corners for all images */
+}
+
+body > img[alt="My Profile Picture"] {
+    border-radius: 50%;
+    width: 11rem; /* Slightly larger */
+    height: 11rem;
+    object-fit: cover;
+    margin: 0 auto 2rem auto; /* More bottom margin */
+    border: 4px solid #fff; /* Thicker white border */
+    /* Enhanced shadow with accent color hint */
+    box-shadow: 0 0 15px rgba(42, 157, 143, 0.2), 0 5px 10px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+body > img[alt="My Profile Picture"]:hover {
+    transform: scale(1.06) rotate(2deg); /* Scale and slight rotate */
+    box-shadow: 0 0 25px rgba(42, 157, 143, 0.4), 0 8px 15px rgba(0,0,0,0.2); /* Stronger shadow on hover */
+}
+
+td img {
+    width: 6rem;
+    height: auto;
+    vertical-align: middle;
+    border-radius: 8px; /* More rounded corners */
+    transition: transform 0.3s ease, filter 0.3s ease; /* Added filter transition */
+    filter: saturate(1); /* Default saturation */
+}
+
+td img:hover {
+    transform: scale(1.15); /* More scaling */
+    filter: saturate(1.5); /* Increase saturation on hover */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+
+/* --- Forms (contact.html) --- */
+form {
+    background-color: #fff;
+    padding: 2rem; /* More padding */
+    border-radius: 10px; /* Match body radius */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Slightly stronger shadow */
+    border: 1px solid #eee; /* Add a subtle border */
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem; /* More space below label */
+    font-weight: bold;
+    color: #555;
+    font-size: 0.9rem; /* Slightly smaller label */
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 0.85em; /* Slightly more padding */
+    margin-bottom: 1.2rem;
+    border: 1px solid #dcdcdc; /* Slightly darker border */
+    border-radius: 6px; /* More rounded */
+    font-family: inherit;
+    font-size: 1rem;
+    background-color: #fdfdfd; /* Very light background */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    border-color: #1a7b72;
+    box-shadow: 0 0 8px rgba(26, 123, 114, 0.25); /* Enhanced glow */
+    background-color: #fff; /* White background on focus */
+    outline: none;
+}
+
+
+textarea {
+    resize: vertical;
+    min-height: 7rem; /* Taller textarea */
+}
+
+button[type="submit"] {
+    background-color: #1a7b72; /* Match accent color */
+    color: #fff;
+    border: none;
+    padding: 0.9em 1.8em; /* Larger padding */
+    border-radius: 50px; /* Pill shape button */
+    font-size: 1.05rem; /* Slightly larger font */
+    font-weight: bold;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+button[type="submit"]:hover {
+    background-color: #15655f; /* Darker shade on hover */
+    transform: translateY(-3px) scale(1.02); /* Lift and slightly enlarge */
+    box-shadow: 0 6px 12px rgba(26, 123, 114, 0.3); /* Accent color shadow on hover */
+}
+
+/* --- Table (resume.html) --- */
+table {
+    width: 100%;
+    border-collapse: separate; /* Use separate for border-radius */
+    border-spacing: 0; /* Remove spacing between cells */
+    margin-bottom: 2rem;
+    background-color: #fff;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    border-radius: 10px; /* Rounded corners for table */
+    overflow: hidden; /* Clip content to rounded corners */
+    border: 1px solid #e0e0e0; /* Add border */
+}
+
+th, td {
+    border-bottom: 1px solid #e0e0e0; /* Only bottom borders */
+    padding: 1rem; /* More padding */
+    text-align: left;
+    vertical-align: middle; /* Center vertically */
+}
+td:not(:last-child), th:not(:last-child) {
+    border-right: 1px solid #e0e0e0; /* Vertical borders */
+}
+
+
+th {
+    background-color: #f1f3f5; /* Lighter header background */
+    font-weight: 700; /* Bolder header */
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+    font-size: 0.95rem;
+    text-transform: uppercase; /* Uppercase headers */
+    letter-spacing: 0.5px;
+}
+
+tbody tr {
+    transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+tbody tr:last-child td {
+    border-bottom: none; /* Remove border from last row */
+}
+
+
+tbody tr:nth-child(odd) {
+    background-color: #fff; /* White for odd rows */
+}
+tbody tr:nth-child(even) {
+    background-color: #f8f9fa; /* Light grey for even rows */
+}
+
+tbody tr:hover {
+    background-color: #e9ecef;
+    transform: scale(1.01); /* Slightly scale row on hover */
+    box-shadow: 0 0 10px rgba(0,0,0,0.05) inset; /* Subtle inset shadow */
+}
+
+/* Style project links specifically */
+td a {
+    color: #0077cc; /* Match general link color */
+    transition: color 0.3s ease, letter-spacing 0.3s ease; /* Add letter-spacing transition */
+}
+td a:hover {
+    color: #e63946; /* Keep red hover for contrast */
+    letter-spacing: 0.5px; /* Slightly increase spacing on hover */
+}
+
+/* --- Navigation Links (index.html) --- */
+body > ul {
+    list-style: none; /* Remove bullets for main nav */
+    padding-left: 0; /* Remove default padding */
+    text-align: center; /* Center align nav */
+}
+
+body > ul > li {
+    display: inline-block; /* Display items side-by-side */
+    margin: 0 0.5rem; /* Space between items */
+    padding: 0; /* Remove padding */
+    transition: transform 0.2s ease;
+}
+
+body > ul > li:hover {
+    background-color: transparent; /* Remove background hover */
+    transform: translateY(-2px); /* Lift item on hover */
+}
+
+body > ul > li a {
+    padding: 0.5rem 1rem; /* Add padding to the link itself */
+    border-radius: 20px; /* Pill shape links */
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+    font-weight: bold;
+    color: #555; /* Darker grey for nav links */
+}
+
+body > ul > li a:hover {
+    background-color: #1a7b72; /* Accent background on hover */
+    color: #fff; /* White text on hover */
+    text-decoration: none;
+    box-shadow: 0 2px 5px rgba(26, 123, 114, 0.2);
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+        margin: 1.5rem auto;
+        border-radius: 0; /* Remove radius on smaller screens */
+        box-shadow: none; /* Remove shadow on smaller screens */
+    }
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.6rem; }
+
+    /* Adjust nav links for smaller screens */
+    body > ul > li {
+        display: block; /* Stack nav items */
+        margin: 0.5rem 0; /* Vertical margin */
+    }
+    body > ul > li a {
+        display: block; /* Make link fill width */
+    }
+
+    /* Consider making table scrollable */
+    .table-wrapper { /* You would need to wrap your table in HTML: <div class="table-wrapper">...</table></div> */
+        overflow-x: auto;
+        margin: 1rem -1rem; /* Allow scrolling content to touch edges */
+        padding: 0 1rem;
+    }
+    table {
+        /* min-width: 600px; Optional: Set minimum width for table */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.4rem; }
+    button[type="submit"] { padding: 0.8em 1.5em; font-size: 1rem; }
+    blockquote { margin-left: 1.5rem; padding: 0.8rem; }
+}
