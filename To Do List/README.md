@@ -2,7 +2,7 @@
 
 A sleek, feature-rich, and intuitive To-Do List application built with pure HTML, CSS, and Vanilla JavaScript. This project showcases a clean, responsive User Interface primarily in **Persian (Farsi)**, offering a delightful task management experience.
 
-![Demo Screenshot Placeholder - Light Mode](https://via.placeholder.com/600x400.png?text=App+Screenshot+-+Light+Mode)
+![Demo Screenshot Placeholder - Light Mode](https://github.com/Sayed-Hossein-Hosseini/My_Online_Showcase/blob/master/To%20Do%20List/Demo.jpg)
 *(Consider replacing this with an actual screenshot of your app!)*
 
 ## 🚀 Features
