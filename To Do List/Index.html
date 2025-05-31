@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>لیست کارهای من</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="light">
+
+<div class="container">
+    <h1>لیست کارهای من</h1>
+    <div class="date" id="dateDisplay"></div>
+
+    <div class="top-controls">
+        <input type="text" id="taskInput" placeholder="کار جدید...">
+        <button class="add-btn" onclick="addTask()">➕</button>
+        <button class="clear-btn" onclick="clearTasks()">🗑</button>
+    </div>
+
+    <div class="search">
+        <input type="text" id="searchInput" placeholder="جستجو...">
+    </div>
+
+    <div class="filters">
+        <button onclick="setFilter('all')" class="active">همه</button>
+        <button onclick="setFilter('active')">انجام نشده</button>
+        <button onclick="setFilter('done')">انجام شده</button>
+    </div>
+
+    <ul id="taskList" ondragover="allowDrop(event)"></ul>
+
+    <div class="empty" id="emptyText">هیچ کاری وجود ندارد</div>
+    <div class="counter" id="counter"></div>
+
+    <div class="theme-toggle">
+        <button onclick="toggleTheme()">🌗 تغییر حالت روز / شب</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

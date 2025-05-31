@@ -1,0 +1,163 @@
+:root {
+    --bg: #f4f6fa;
+    --text: #333;
+    --primary: #3b82f6;
+    --accent: #10b981;
+    --danger: #ef4444;
+    --card: #fff;
+}
+
+[data-theme="dark"] {
+    --bg: #1e293b;
+    --text: #e2e8f0;
+    --card: #334155;
+}
+
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    direction: rtl;
+    transition: background 0.3s, color 0.3s;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: var(--card);
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+    padding: 30px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.date {
+    text-align: center;
+    font-size: 14px;
+    color: var(--text);
+    margin-bottom: 20px;
+}
+
+.top-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+button {
+    border: none;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.add-btn { background: var(--primary); color: white; }
+.clear-btn { background: var(--danger); color: white; }
+
+.filters {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+.filters button {
+    background: none;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.filters .active {
+    text-decoration: underline;
+}
+
+.search {
+    margin-bottom: 15px;
+}
+
+.search input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    min-height: 80px;
+}
+
+li {
+    background: #f1f5f9;
+    margin-bottom: 10px;
+    padding: 12px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s;
+}
+
+[data-theme="dark"] li {
+    background: #475569;
+}
+
+li.done span {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+li span {
+    flex: 1;
+    cursor: pointer;
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+}
+
+.actions button {
+    font-size: 16px;
+    background: none;
+}
+
+.edit-btn { color: var(--accent); }
+.del-btn { color: var(--danger); }
+
+.counter, .empty {
+    text-align: center;
+    margin-top: 10px;
+    color: #999;
+}
+
+.theme-toggle {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.highlight {
+    animation: highlight 1s ease;
+}
+
+@keyframes highlight {
+    0% { background: #dbeafe; }
+    100% { background: inherit; }
+}
