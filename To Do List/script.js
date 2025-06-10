@@ -46,8 +46,32 @@ function editTask(index) {
     }
 }
 
+function showNotification(message) {
+    const notification = document.createElement("div");
+    notification.textContent = message;
+    notification.style.position = 'fixed';
+    notification.style.bottom = '20px';
+    notification.style.left = '50%';
+    notification.style.transform = 'translateX(-50%)';
+    notification.style.backgroundColor = '#4CAF50';
+    notification.style.color = 'white';
+    notification.style.padding = '16px';
+    notification.style.borderRadius = '8px';
+    notification.style.zIndex = '1000';
+    notification.style.transition = 'opacity 0.5s ease-out';
+    document.body.appendChild(notification);
+
+    setTimeout(() => {
+        notification.style.opacity = '0';
+        notification.addEventListener('transitionend', () => notification.remove());
+    }, 2500); // نمایش برای ۲.۵ ثانیه
+}
+
 function toggleDone(index) {
     tasks[index].done = !tasks[index].done;
+    if (tasks[index].done) {
+        showNotification(`!کار "${tasks[index].text}" انجام شد`);
+    }
     save();
     render();
 }
@@ -75,19 +99,23 @@ function render(highlightLast = false) {
     if (filter === "done") filtered = filtered.filter(t => t.done);
     if (filter === "active") filtered = filtered.filter(t => !t.done);
 
+    // Get the correct indices from the original `tasks` array for manipulation
+    const originalIndices = filtered.map(task => tasks.indexOf(task));
+
     filtered.forEach((task, i) => {
+        const originalIndex = originalIndices[i];
         const li = document.createElement("li");
         if (task.done) li.classList.add("done");
-        if (highlightLast && i === tasks.length - 1) li.classList.add("highlight");
+        if (highlightLast && originalIndex === tasks.length - 1) li.classList.add("highlight");
         li.draggable = true;
-        li.ondragstart = e => dragStart(e, i);
-        li.ondrop = e => drop(e, i);
+        li.ondragstart = e => dragStart(e, originalIndex);
+        li.ondrop = e => drop(e, originalIndex);
         li.ondragover = allowDrop;
         li.innerHTML = `
-      <span onclick="toggleDone(${i})">${task.text}</span>
+      <span onclick="toggleDone(${originalIndex})">${task.text}</span>
       <div class="actions">
-        <button class="edit-btn" onclick="editTask(${i})">✏</button>
-        <button class="del-btn" onclick="deleteTask(${i})">🗑</button>
+        <button class="edit-btn" onclick="editTask(${originalIndex})">✏</button>
+        <button class="del-btn" onclick="deleteTask(${originalIndex})">🗑</button>
       </div>
     `;
         taskList.appendChild(li);
@@ -114,9 +142,11 @@ function allowDrop(e) {
 function drop(e, indexTo) {
     const item = tasks.splice(dragFrom, 1)[0];
     tasks.splice(indexTo, 0, item);
+    dragFrom = null; // Reset after drop
     save();
     render();
 }
+
 
 function toggleTheme() {
     const theme = document.body.getAttribute("data-theme");
@@ -124,3 +154,14 @@ function toggleTheme() {
 }
 
 render();
+
+function checkPendingTasks() {
+    const undoneCount = tasks.filter(task => !task.done).length;
+    if (undoneCount > 0) {
+        alert(`شما ${undoneCount} کار انجام نشده دارید. موفق باشید!`);
+    }
+}
+
+// هر ساعت یکبار کارهای انجام نشده را بررسی کن
+// 1000ms * 60s * 60m = 1 hour
+setInterval(checkPendingTasks, 1000 * 60 * 60);
